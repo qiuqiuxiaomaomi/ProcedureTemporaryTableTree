@@ -92,3 +92,19 @@ Java代码调用存储过程
                    2）OnDisk零时表
                       这种零时表将数据全部存在磁盘上。
 </pre>
+
+<pre>
+触发器：
+
+      创建触发器来使班级表中的学生总数随着学生表中人数的增加而自动增加         
+
+      DELIMITER $
+      create trigger tri_stuInsert after insert
+      on student for each row
+      begin
+      declare c int;
+        set c = (select stuCount from class where classID=new.classID);
+        update class set stuCount = c + 1 where classID = new.classID;
+      end$
+      DELIMITER ;
+</pre>
