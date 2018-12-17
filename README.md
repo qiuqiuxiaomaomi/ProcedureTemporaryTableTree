@@ -107,4 +107,8 @@ Java代码调用存储过程
         update class set stuCount = c + 1 where classID = new.classID;
       end$
       DELIMITER ;
+
+      触发器分类：
+               1）after触发器
+               2）before触发器
 </pre>
